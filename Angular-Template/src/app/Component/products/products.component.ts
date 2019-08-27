@@ -1,6 +1,7 @@
 import { Component, OnInit,Input,Output } from '@angular/core';
 import { Product } from 'src/app/Models/product';
-
+import{ DataChangeService} from '../../Services/data-change.service';
+import {ContractTypesComponent} from '../contract-types/contract-types.component';
 @Component({
   selector: 'app-products',
   templateUrl: './products.component.html',
@@ -9,7 +10,9 @@ import { Product } from 'src/app/Models/product';
 export class ProductsComponent implements OnInit {
 @Input() products:Product[];
 
-  constructor() { }
+  constructor(dcs:DataChangeService) { 
+    
+  }
 
   ngOnInit() {
     
@@ -22,9 +25,12 @@ export class ProductsComponent implements OnInit {
       ]
     )
 
+    this.subscription = this.ss.getEmittedValue()
+      .subscribe(item => this.onMain = item);
   }
 public setProducts(p:Product[]):void{
   this.products=p;
 
 }
+
 }

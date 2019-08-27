@@ -7,7 +7,7 @@ import { ProductsComponent } from '../products/products.component';
 import 'rxjs/Rx';
 import { Observable } from 'rxjs'; 
 import { DataChangeService } from '../../Services/data-change.service';
-
+import {  of } from 'rxjs';
 @Component({
   selector: 'app-contract-types',
   templateUrl: './contract-types.component.html',
@@ -62,5 +62,5 @@ export class ContractTypesComponent implements OnInit {
 
 
   }
-
+ 
 }
